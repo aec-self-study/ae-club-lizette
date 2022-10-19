@@ -2,7 +2,7 @@ with base as (
   select customer_id
     , name
     , email
-    , orders.total as number_of_orders 
+    , count(*) as number_of_orders 
     , min(orders.created_at) as first_order_at  
   from `analytics-engineers-club.coffee_shop.customers` customers
   left join `analytics-engineers-club.coffee_shop.orders` orders on customers.id = orders.customer_id
